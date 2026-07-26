@@ -3,194 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chart - Health Assistant</title>
-
-<style>
-/* Animated gradient background */
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:20px;
-    background: linear-gradient(-45deg,#1a2a6c,#2a7a7b,#4ca1af,#6dd5ed);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
-    color:white;
-}
-
-@keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-.container{
-    max-width:600px;
-    margin:auto;
-    background:rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
-    padding:20px;
-    border-radius:16px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.3);
-}
-
-h1{
-    text-align:center;
-}
-
-textarea,input{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
-    border:none;
-    font-size:16px;
-}
-
-button{
-    background:#00c9a7;
-    color:white;
-    border:none;
-    padding:12px;
-    margin-top:10px;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#00a98c;
-}
-
-.output{
-    margin-top:15px;
-    padding:10px;
-    background:rgba(0,0,0,0.3);
-    border-radius:8px;
-}
-
-.history{
-    max-height:150px;
-    overflow:auto;
-    font-size:14px;
-}
-</style>
+<title>Ten X Better Projects | Construction & Civil Engineering</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<div class="container">
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo"><span class="x">X</span> Ten X Better Projects</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="apply.html">Apply</a>
+      <a href="track.html">Track My Application</a>
+      <a href="showcase.html">What We Do</a>
+    </div>
+    <button class="nav-toggle" id="navToggle">&#9776;</button>
+  </div>
+</nav>
 
-<h1>Chart 🩺</h1>
+<header class="blueprint-hero">
+  <div class="wrap">
+    <div class="eyebrow">Construction &amp; Civil Engineering — Zambia</div>
+    <h1 class="hero-title">We build ten times<br><span class="accent">better,</span> not ten times louder.</h1>
+    <p class="hero-sub">From site visit to handover, we plan, price, and construct your house, warehouse, or commercial building — with weekly reports so you always know where things stand.</p>
+    <div class="hero-ctas">
+      <a href="apply.html" class="btn btn-primary">Start an Application →</a>
+      <a href="track.html" class="btn btn-ghost">Track Existing Application</a>
+    </div>
+  </div>
+</header>
 
-<label>How are you feeling?</label>
-<textarea id="symptoms" rows="3"></textarea>
+<section>
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--brick)">Our Services</div>
+    <h2 class="section-title">Everything under one contract.</h2>
+    <p class="section-lede">We don't hand you off between subcontractors. One team, one bill of quantities, one point of accountability from plan to plaster.</p>
 
-<button onclick="startVoice()">🎤 Speak</button>
-<button onclick="analyze()">Check Symptoms</button>
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="mono">SRV—01</div>
+        <h3>Construction &amp; Civil Works</h3>
+        <div class="tag">GROUND UP</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—02</div>
+        <h3>Consultancy &amp; Construction Management</h3>
+        <div class="tag">ADVISORY</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—03</div>
+        <h3>Labour Hire</h3>
+        <div class="tag">ON-SITE</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—04</div>
+        <h3>Machinery Hiring</h3>
+        <div class="tag">EQUIPMENT</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—05</div>
+        <h3>Bill of Quantities (BOQ) Generation</h3>
+        <div class="tag">COSTING</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—06</div>
+        <h3>Title Deed Processing</h3>
+        <div class="tag">LEGAL</div>
+      </div>
+      <div class="ledger-row">
+        <div class="mono">SRV—07</div>
+        <h3>Planning &amp; Design of Any Structure</h3>
+        <div class="tag">DESIGN</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div id="result" class="output"></div>
+<section style="background:var(--white); border-top:1px solid var(--plaster-line); border-bottom:1px solid var(--plaster-line);">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--brick)">How It Works</div>
+    <h2 class="section-title">From site visit to handover.</h2>
+    <p class="section-lede">The same procedure we run internally — visible to you at every stage once you apply.</p>
 
-<h3>Ask a question</h3>
-<input id="question">
-<button onclick="answer()">Ask</button>
+    <div class="procedure">
+      <div class="proc-row">
+        <div class="proc-num">01</div>
+        <p><strong>Site Visit.</strong> We assess your plot, access roads, and terrain before anything is priced.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">02</div>
+        <p><strong>Design.</strong> We draft a plan for you, or work from one you already have.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">03</div>
+        <p><strong>Bill of Quantities.</strong> A full costed breakdown of materials and labour, no surprises later.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">04</div>
+        <p><strong>Contract Agreement.</strong> Terms, timeline, and payment plan signed by both sides.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">05</div>
+        <p><strong>Mobilization Payment.</strong> 25%–75% deposit to begin, depending on scope.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">06</div>
+        <p><strong>Work Schedule.</strong> We prepare and share a build timeline before breaking ground.</p>
+      </div>
+      <div class="proc-row">
+        <div class="proc-num">07</div>
+        <p><strong>Weekly Reports.</strong> You receive progress photos and updates every week, start to finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div id="answerBox" class="output"></div>
+<section>
+  <div class="wrap">
+    <div class="dim-divider"><span class="mono">READY TO BUILD?</span></div>
+    <div class="card-grid">
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Apply for a Project</h3>
+        <p style="color:var(--ink-soft); font-size:14px; margin-bottom:18px;">Tell us what you want to build and get an application reference in minutes.</p>
+        <a href="apply.html" class="btn btn-primary btn-block">Start Application</a>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Track Your Build</h3>
+        <p style="color:var(--ink-soft); font-size:14px; margin-bottom:18px;">Already applied? Check status and progress with your phone or NRC number.</p>
+        <a href="track.html" class="btn btn-dark btn-block">Track Application</a>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">See Our Work</h3>
+        <p style="color:var(--ink-soft); font-size:14px; margin-bottom:18px;">Browse photos and videos from completed and in-progress projects.</p>
+        <a href="showcase.html" class="btn btn-ghost btn-block" style="border-color:#DDD6C8; color:var(--ink);">What We Do</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>History</h3>
-<div id="history" class="output history"></div>
-<button onclick="clearHistory()">Clear History</button>
-
-<p style="font-size:12px">
-⚠️ Chart gives general health info only — not medical diagnosis.
-</p>
-
+<div class="contact-strip">
+  <div class="wrap">
+    <div class="mono" style="font-size:13px; opacity:0.7;">FOR MORE INFORMATION</div>
+    <div class="numbers">
+      <span>+260 969 192 247</span>
+      <span>+260 979 144 524</span>
+      <span>+260 777 992 356</span>
+    </div>
+  </div>
 </div>
 
+<div class="social-bar">
+  <div class="wrap">
+    <div class="label">Follow &amp; Share</div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61588738375242" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/10xbetterproject/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65-.05 1.05-.06 1.37-.06 4.04s.01 2.99.06 4.04c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.05.06-1.37.06-4.04s-.01-2.99-.06-4.04c-.04-.87-.18-1.34-.3-1.65a2.75 2.75 0 0 0-.66-1.02 2.75 2.75 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3-1.05-.05-1.37-.06-4.04-.06zm0 4.58a5.62 5.62 0 1 1 0 11.24 5.62 5.62 0 0 1 0-11.24zm0 1.8a3.82 3.82 0 1 0 0 7.64 3.82 3.82 0 0 0 0-7.64zm5.84-1.99a1.31 1.31 0 1 1-2.63 0 1.31 1.31 0 0 1 2.63 0z"/></svg>
+      </a>
+      <a href="https://vm.tiktok.com/ZS9rq2JGFmb5u-qh60j/" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.9-.98-1.4-2.26-1.4-3.62h-3.14v13.7a2.9 2.9 0 1 1-2.06-2.78V9.9a6.06 6.06 0 1 0 5.2 6v-7.02a7.6 7.6 0 0 0 4.4 1.4V7.16a4.3 4.3 0 0 1-3-1.34z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © <span id="year"></span> Ten X Better Projects Limited. Built ten times better.
+</footer>
+
 <script>
-
-/* ---------- VOICE INPUT ---------- */
-function startVoice(){
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if(!SpeechRecognition){
-        alert("Voice not supported on this browser");
-        return;
-    }
-
-    const recog = new SpeechRecognition();
-    recog.start();
-
-    recog.onresult = function(e){
-        document.getElementById("symptoms").value = e.results[0][0].transcript;
-    }
-}
-
-
-/* ---------- ANALYZE ---------- */
-function analyze(){
-    let text = document.getElementById("symptoms").value.toLowerCase();
-    let response = "";
-
-    if(text.includes("fever")){
-        response += "Possible infection.<br>Usually mild — serious if persistent.<br>Traditional: herbal tea & rest.<br><br>";
-    }
-
-    if(text.includes("headache")){
-        response += "May be stress or dehydration.<br>Drink water, rest, ginger tea.<br><br>";
-    }
-
-    if(text.includes("cough")){
-        response += "Possible cold.<br>Honey + warm fluids recommended.<br><br>";
-    }
-
-    if(text.includes("stomach")){
-        response += "Indigestion possible.<br>Peppermint tea may help.<br><br>";
-    }
-
-    if(response===""){
-        response="Chart couldn't identify symptoms yet.";
-    }
-
-    document.getElementById("result").innerHTML=response;
-    saveHistory("Symptoms: "+text+" -> "+response);
-}
-
-
-/* ---------- QUESTIONS ---------- */
-function answer(){
-    let q=document.getElementById("question").value;
-    let reply="Chart is still learning 🙂";
-
-    if(q.toLowerCase().includes("serious")){
-        reply="If pain is strong or lasting days — see a doctor.";
-    }
-
-    document.getElementById("answerBox").innerHTML=reply;
-    saveHistory("Q: "+q+" -> "+reply);
-}
-
-
-/* ---------- HISTORY STORAGE ---------- */
-function saveHistory(entry){
-    let history = JSON.parse(localStorage.getItem("chartHistory")||"[]");
-    history.push(entry);
-    localStorage.setItem("chartHistory",JSON.stringify(history));
-    showHistory();
-}
-
-function showHistory(){
-    let history = JSON.parse(localStorage.getItem("chartHistory")||"[]");
-    document.getElementById("history").innerHTML=history.join("<br><br>");
-}
-
-function clearHistory(){
-    localStorage.removeItem("chartHistory");
-    showHistory();
-}
-
-showHistory();
-
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
 </script>
-
 </body>
 </html>
-
