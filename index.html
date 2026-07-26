@@ -1,1 +1,196 @@
-coming soon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chart - Health Assistant</title>
+
+<style>
+/* Animated gradient background */
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:20px;
+    background: linear-gradient(-45deg,#1a2a6c,#2a7a7b,#4ca1af,#6dd5ed);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color:white;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    max-width:600px;
+    margin:auto;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+}
+
+textarea,input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:none;
+    font-size:16px;
+}
+
+button{
+    background:#00c9a7;
+    color:white;
+    border:none;
+    padding:12px;
+    margin-top:10px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#00a98c;
+}
+
+.output{
+    margin-top:15px;
+    padding:10px;
+    background:rgba(0,0,0,0.3);
+    border-radius:8px;
+}
+
+.history{
+    max-height:150px;
+    overflow:auto;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Chart 🩺</h1>
+
+<label>How are you feeling?</label>
+<textarea id="symptoms" rows="3"></textarea>
+
+<button onclick="startVoice()">🎤 Speak</button>
+<button onclick="analyze()">Check Symptoms</button>
+
+<div id="result" class="output"></div>
+
+<h3>Ask a question</h3>
+<input id="question">
+<button onclick="answer()">Ask</button>
+
+<div id="answerBox" class="output"></div>
+
+<h3>History</h3>
+<div id="history" class="output history"></div>
+<button onclick="clearHistory()">Clear History</button>
+
+<p style="font-size:12px">
+⚠️ Chart gives general health info only — not medical diagnosis.
+</p>
+
+</div>
+
+<script>
+
+/* ---------- VOICE INPUT ---------- */
+function startVoice(){
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SpeechRecognition){
+        alert("Voice not supported on this browser");
+        return;
+    }
+
+    const recog = new SpeechRecognition();
+    recog.start();
+
+    recog.onresult = function(e){
+        document.getElementById("symptoms").value = e.results[0][0].transcript;
+    }
+}
+
+
+/* ---------- ANALYZE ---------- */
+function analyze(){
+    let text = document.getElementById("symptoms").value.toLowerCase();
+    let response = "";
+
+    if(text.includes("fever")){
+        response += "Possible infection.<br>Usually mild — serious if persistent.<br>Traditional: herbal tea & rest.<br><br>";
+    }
+
+    if(text.includes("headache")){
+        response += "May be stress or dehydration.<br>Drink water, rest, ginger tea.<br><br>";
+    }
+
+    if(text.includes("cough")){
+        response += "Possible cold.<br>Honey + warm fluids recommended.<br><br>";
+    }
+
+    if(text.includes("stomach")){
+        response += "Indigestion possible.<br>Peppermint tea may help.<br><br>";
+    }
+
+    if(response===""){
+        response="Chart couldn't identify symptoms yet.";
+    }
+
+    document.getElementById("result").innerHTML=response;
+    saveHistory("Symptoms: "+text+" -> "+response);
+}
+
+
+/* ---------- QUESTIONS ---------- */
+function answer(){
+    let q=document.getElementById("question").value;
+    let reply="Chart is still learning 🙂";
+
+    if(q.toLowerCase().includes("serious")){
+        reply="If pain is strong or lasting days — see a doctor.";
+    }
+
+    document.getElementById("answerBox").innerHTML=reply;
+    saveHistory("Q: "+q+" -> "+reply);
+}
+
+
+/* ---------- HISTORY STORAGE ---------- */
+function saveHistory(entry){
+    let history = JSON.parse(localStorage.getItem("chartHistory")||"[]");
+    history.push(entry);
+    localStorage.setItem("chartHistory",JSON.stringify(history));
+    showHistory();
+}
+
+function showHistory(){
+    let history = JSON.parse(localStorage.getItem("chartHistory")||"[]");
+    document.getElementById("history").innerHTML=history.join("<br><br>");
+}
+
+function clearHistory(){
+    localStorage.removeItem("chartHistory");
+    showHistory();
+}
+
+showHistory();
+
+</script>
+
+</body>
+</html>
+
