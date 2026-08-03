@@ -6,7 +6,39 @@
 <title>Ten X Better Projects | Construction & Civil Engineering</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-  /* --- Logo enhancement: bigger, professional, subtly animated --- */
+  /* ============================================================
+     TEN X BETTER PROJECTS — GOLD & BLACK CONSTRUCTION THEME
+     Overrides layered on top of css/style.css
+     ============================================================ */
+
+  :root{
+    --tx-gold: #D4A017;
+    --tx-gold-light: #F1C752;
+    --tx-black: #0B0B0C;
+    --tx-black-soft: #1A1A1C;
+    --tx-grey: #B8B8B8;
+  }
+
+  body{
+    background: var(--tx-black);
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    background: var(--tx-black) !important;
+    border-bottom: 2px solid var(--tx-gold);
+  }
+  .nav-links a{
+    color: var(--tx-grey) !important;
+  }
+  .nav-links a.active,
+  .nav-links a:hover{
+    color: var(--tx-gold-light) !important;
+  }
+  .nav-toggle{
+    color: var(--tx-gold-light) !important;
+  }
+
   .nav-logo{
     display: inline-flex;
     align-items: center;
@@ -27,7 +59,7 @@
     letter-spacing: 0.3px;
     line-height: 1;
     white-space: nowrap;
-    background: linear-gradient(90deg, var(--brick, #B5432A), var(--ink, #2b2b2b) 55%, var(--brick, #B5432A));
+    background: linear-gradient(90deg, var(--tx-gold), #FFFFFF 50%, var(--tx-gold));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -44,7 +76,7 @@
     bottom: -4px;
     width: 0%;
     height: 2px;
-    background: var(--brick, #B5432A);
+    background: var(--tx-gold);
     transition: width 0.35s ease;
   }
   .nav-logo:hover::after{
@@ -58,6 +90,207 @@
   @media (max-width: 640px){
     .nav-logo-text{ font-size: 24px; }
     .nav-logo-mark{ height: 34px; }
+  }
+
+  /* ---------- HERO ---------- */
+  .blueprint-hero{
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.75) 45%, rgba(11,11,12,0.95) 100%),
+      url('images/hero-bg.jpg') center 20% / cover no-repeat;
+    padding: 110px 0 90px;
+    overflow: hidden;
+  }
+  .blueprint-hero::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; right:0;
+    height:4px;
+    background: linear-gradient(90deg, transparent, var(--tx-gold) 20%, var(--tx-gold-light) 50%, var(--tx-gold) 80%, transparent);
+  }
+  .blueprint-hero .eyebrow{
+    color: var(--tx-gold-light) !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .blueprint-hero .hero-title{
+    color: #FFFFFF !important;
+  }
+  .blueprint-hero .hero-title .accent{
+    color: var(--tx-gold) !important;
+  }
+  .blueprint-hero .hero-sub{
+    color: var(--tx-grey) !important;
+  }
+  .blueprint-hero .btn-primary{
+    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light)) !important;
+    color: var(--tx-black) !important;
+    border: none !important;
+    font-weight: 700;
+  }
+  .blueprint-hero .btn-ghost{
+    border: 1.5px solid var(--tx-gold) !important;
+    color: var(--tx-gold-light) !important;
+  }
+
+  /* ---------- SERVICES / LEDGER SECTION ---------- */
+  section:has(.ledger){
+    background: var(--tx-black-soft) !important;
+  }
+  section:has(.ledger) .eyebrow{ color: var(--tx-gold-light) !important; }
+  section:has(.ledger) .section-title{ color: #FFFFFF !important; }
+  section:has(.ledger) .section-lede{ color: var(--tx-grey) !important; }
+
+  .ledger-row{
+    border-bottom: 1px solid rgba(212,160,23,0.25) !important;
+  }
+  .ledger-row .mono{
+    color: var(--tx-gold-light) !important;
+  }
+  .ledger-row h3{
+    color: #F2F2F2 !important;
+  }
+  .ledger-row .tag{
+    background: var(--tx-gold) !important;
+    color: var(--tx-black) !important;
+    font-weight: 700;
+  }
+
+  /* ---------- HOW IT WORKS / PROCEDURE SECTION ---------- */
+  section:has(.procedure){
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(11,11,12,0.90), rgba(11,11,12,0.82)),
+      url('images/procedure-bg.jpg') center / cover no-repeat !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+  section:has(.procedure) .eyebrow{ color: var(--tx-gold-light) !important; }
+  section:has(.procedure) .section-title{ color: #FFFFFF !important; }
+  section:has(.procedure) .section-lede{ color: var(--tx-grey) !important; }
+  section:has(.procedure) .proc-row p{ color: #EDEDED !important; }
+  section:has(.procedure) .proc-row strong{ color: var(--tx-gold-light) !important; }
+  .proc-num{
+    background: var(--tx-gold) !important;
+    color: var(--tx-black) !important;
+    font-weight: 800;
+  }
+
+  /* ---------- READY TO BUILD / CARDS SECTION ---------- */
+  section:has(.card-grid){
+    background: var(--tx-black-soft) !important;
+  }
+  .dim-divider{
+    border-color: rgba(212,160,23,0.3) !important;
+  }
+  .dim-divider .mono{
+    color: var(--tx-gold-light) !important;
+  }
+  .card{
+    background: var(--tx-black) !important;
+    border: 1px solid rgba(212,160,23,0.35) !important;
+  }
+  .card h3{ color: #FFFFFF !important; }
+  .card p{ color: var(--tx-grey) !important; }
+  .card .btn-primary{
+    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light)) !important;
+    color: var(--tx-black) !important;
+    border: none !important;
+    font-weight: 700;
+  }
+  .card .btn-dark{
+    background: #FFFFFF !important;
+    color: var(--tx-black) !important;
+  }
+  .card .btn-ghost{
+    border-color: var(--tx-gold) !important;
+    color: var(--tx-gold-light) !important;
+  }
+
+  /* ---------- COMPANY PROFILE DOWNLOAD SECTION ---------- */
+  .profile-band{
+    position: relative;
+    background:
+      linear-gradient(120deg, rgba(11,11,12,0.92) 20%, rgba(11,11,12,0.55)),
+      url('images/cta-bg.jpg') center / cover no-repeat;
+    padding: 70px 0;
+    border-top: 2px solid var(--tx-gold);
+    border-bottom: 2px solid var(--tx-gold);
+  }
+  .profile-band .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .profile-band-text .eyebrow{
+    color: var(--tx-gold-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .profile-band-text h2{
+    color: #FFFFFF;
+    font-size: 28px;
+    margin: 0 0 10px;
+    max-width: 480px;
+  }
+  .profile-band-text p{
+    color: var(--tx-grey);
+    max-width: 480px;
+    font-size: 15px;
+    margin: 0;
+  }
+  .profile-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light));
+    color: var(--tx-black);
+    font-weight: 700;
+    padding: 16px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 18px rgba(212,160,23,0.25);
+  }
+  .profile-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212,160,23,0.4);
+  }
+
+  /* ---------- CONTACT STRIP / SOCIAL / FOOTER ---------- */
+  .contact-strip{
+    background: var(--tx-black) !important;
+    border-top: 1px solid rgba(212,160,23,0.25);
+  }
+  .contact-strip .numbers span{
+    color: #FFFFFF !important;
+  }
+  .contact-strip .mono{
+    color: var(--tx-gold-light) !important;
+  }
+  .social-bar{
+    background: var(--tx-black-soft) !important;
+  }
+  .social-bar .label{
+    color: var(--tx-grey) !important;
+  }
+  .social-icons a{
+    color: var(--tx-gold-light) !important;
+  }
+  .social-icons svg{
+    fill: var(--tx-gold-light) !important;
+  }
+  footer{
+    background: var(--tx-black) !important;
+    color: var(--tx-grey) !important;
+    border-top: 2px solid var(--tx-gold);
   }
 </style>
 </head>
@@ -175,6 +408,19 @@
     </div>
   </div>
 </section>
+
+<div class="profile-band">
+  <div class="wrap">
+    <div class="profile-band-text">
+      <div class="eyebrow">Company Profile</div>
+      <h2>Want the full picture of what we do?</h2>
+      <p>Download our complete company profile — our mission, our 10X Standard Block, service matrix, statutory details, and more.</p>
+    </div>
+    <a href="Ten-X-Better-Projects-Company-Profile.pdf" class="profile-btn" target="_blank" rel="noopener">
+      ⬇ Download Company Profile (PDF)
+    </a>
+  </div>
+</div>
 
 <section>
   <div class="wrap">
