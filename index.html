@@ -5,12 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ten X Better Projects | Construction & Civil Engineering</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* --- Logo enhancement: bigger, professional, subtly animated --- */
+  .nav-logo{
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(90deg, var(--brick, #B5432A), var(--ink, #2b2b2b) 55%, var(--brick, #B5432A));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: logoSheen 6s ease-in-out infinite;
+    transition: transform 0.25s ease;
+  }
+  .nav-logo:hover{
+    transform: translateY(-1px) scale(1.02);
+  }
+  .nav-logo::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--brick, #B5432A);
+    transition: width 0.35s ease;
+  }
+  .nav-logo:hover::after{
+    width: 100%;
+  }
+  @keyframes logoSheen{
+    0%   { background-position: 0% center; }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+  @media (max-width: 640px){
+    .nav-logo{ font-size: 20px; }
+  }
+</style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-logo"><span class="x">X</span> Ten X Better Projects</a>
+    <a href="index.html" class="nav-logo">Ten X Better Projects</a>
     <div class="nav-links" id="navLinks">
       <a href="index.html" class="active">Home</a>
       <a href="apply.html">Apply</a>
