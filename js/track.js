@@ -33,10 +33,7 @@ async function runSearch() {
     const results = Array.from(resultsMap.values());
 
     if (results.length === 0) {
-      searchResults.innerHTML = `
-        <div class="empty-state">
-          No application found with that number. Please check and try again.
-        </div>`;
+      searchResults.innerHTML = `<div class="empty-state">No application found with that number. Please check and try again.</div>`;
       return;
     }
 

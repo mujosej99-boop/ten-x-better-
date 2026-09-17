@@ -16,10 +16,7 @@ const q = query(showcaseRef, orderBy("uploadedAt", "desc"));
 
 onSnapshot(q, (snap) => {
   if (snap.empty) {
-    grid.innerHTML = `
-      <div class="empty-state" style="grid-column:1/-1;">
-        No photos or videos have been added yet. Check back soon!
-      </div>`;
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">No photos or videos have been added yet. Check back soon!</div>`;
     return;
   }
 

@@ -3,7 +3,6 @@ import { db, collection, addDoc, uploadToCloudinary } from "./firebase-config.js
 let currentStep = 0;
 const totalSteps = 5;
 
-// ---------- state for chip selections & files ----------
 const state = {
   preferredContactMethod: "Phone Call",
   hasPlot: null,
@@ -15,7 +14,6 @@ const state = {
   planFile: null,
 };
 
-// ---------- chip helpers ----------
 function setupSingleChip(containerId, stateKey, transform = (v) => v) {
   const container = document.getElementById(containerId);
   container.querySelectorAll(".chip").forEach((chip) => {
@@ -50,18 +48,14 @@ setupSingleChip("hasDrawingChips", "hasDrawing");
 setupMultiChip("structuresChips", "additionalStructures");
 
 function onStateChange() {
-  document.getElementById("plotOtherWrap").style.display =
-    state.hasPlot === false ? "block" : "none";
-  document.getElementById("planFileWrap").style.display =
-    state.hasDrawing === "Yes" ? "block" : "none";
+  document.getElementById("plotOtherWrap").style.display = state.hasPlot === false ? "block" : "none";
+  document.getElementById("planFileWrap").style.display = state.hasDrawing === "Yes" ? "block" : "none";
 }
 
 document.getElementById("projectType").addEventListener("change", (e) => {
-  document.getElementById("projectTypeOtherWrap").style.display =
-    e.target.value === "Other" ? "block" : "none";
+  document.getElementById("projectTypeOtherWrap").style.display = e.target.value === "Other" ? "block" : "none";
 });
 
-// ---------- file drop handlers ----------
 function setupFileDrop(dropId, inputId, stateKey) {
   const drop = document.getElementById(dropId);
   const input = document.getElementById(inputId);
@@ -78,7 +72,6 @@ setupFileDrop("nrcFrontDrop", "nrcFrontFile", "nrcFrontFile");
 setupFileDrop("nrcBackDrop", "nrcBackFile", "nrcBackFile");
 setupFileDrop("planDrop", "planFile", "planFile");
 
-// ---------- step navigation ----------
 const nextBtn = document.getElementById("nextBtn");
 const backBtn = document.getElementById("backBtn");
 const stepLabel = document.getElementById("stepLabel");
@@ -102,6 +95,10 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 3200);
+}
+
+function val(id) {
+  return document.getElementById(id).value.trim();
 }
 
 function validateStep(step) {
@@ -134,10 +131,6 @@ function validateStep(step) {
     }
   }
   return true;
-}
-
-function val(id) {
-  return document.getElementById(id).value.trim();
 }
 
 function buildReview() {
@@ -174,7 +167,6 @@ backBtn.addEventListener("click", () => {
   }
 });
 
-// ---------- submission ----------
 async function submitApplication() {
   nextBtn.disabled = true;
   nextBtn.textContent = "Uploading photos...";

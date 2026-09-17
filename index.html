@@ -5,313 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ten X Better Projects | Construction & Civil Engineering</title>
 <link rel="stylesheet" href="css/style.css">
-<style>
-  /* ============================================================
-     TEN X BETTER PROJECTS — GOLD & BLACK CONSTRUCTION THEME
-     Overrides layered on top of css/style.css
-     ============================================================ */
-
-  :root{
-    --tx-gold: #D4A017;
-    --tx-gold-light: #F1C752;
-    --tx-black: #0B0B0C;
-    --tx-black-soft: #1A1A1C;
-    --tx-grey: #B8B8B8;
-  }
-
-  body{
-    background: var(--tx-black);
-  }
-
-  /* ---------- NAV ---------- */
-  .nav{
-    background: var(--tx-black) !important;
-    border-bottom: 2px solid var(--tx-gold);
-  }
-  .nav-links a{
-    color: var(--tx-grey) !important;
-  }
-  .nav-links a.active,
-  .nav-links a:hover{
-    color: var(--tx-gold-light) !important;
-  }
-  .nav-toggle{
-    color: var(--tx-gold-light) !important;
-  }
-
-  .nav-logo{
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    position: relative;
-    text-decoration: none;
-    transition: transform 0.25s ease;
-  }
-  .nav-logo-mark{
-    height: 50px;
-    width: auto;
-    flex-shrink: 0;
-    display: block;
-  }
-  .nav-logo-text{
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-    line-height: 1;
-    white-space: nowrap;
-    background: linear-gradient(90deg, var(--tx-gold), #FFFFFF 50%, var(--tx-gold));
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: logoSheen 6s ease-in-out infinite;
-  }
-  .nav-logo:hover{
-    transform: translateY(-1px) scale(1.02);
-  }
-  .nav-logo::after{
-    content: "";
-    position: absolute;
-    left: 64px;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: var(--tx-gold);
-    transition: width 0.35s ease;
-  }
-  .nav-logo:hover::after{
-    width: calc(100% - 64px);
-  }
-  @keyframes logoSheen{
-    0%   { background-position: 0% center; }
-    50%  { background-position: 100% center; }
-    100% { background-position: 0% center; }
-  }
-  @media (max-width: 640px){
-    .nav-logo-text{ font-size: 24px; }
-    .nav-logo-mark{ height: 34px; }
-  }
-
-  /* ---------- HERO ---------- */
-  .blueprint-hero{
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.75) 45%, rgba(11,11,12,0.95) 100%),
-      url('hero-bg.jpg') center 20% / cover no-repeat;
-    padding: 110px 0 90px;
-    overflow: hidden;
-  }
-  .blueprint-hero::before{
-    content:"";
-    position:absolute;
-    left:0; top:0; right:0;
-    height:4px;
-    background: linear-gradient(90deg, transparent, var(--tx-gold) 20%, var(--tx-gold-light) 50%, var(--tx-gold) 80%, transparent);
-  }
-  .blueprint-hero .eyebrow{
-    color: var(--tx-gold-light) !important;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .blueprint-hero .hero-title{
-    color: #FFFFFF !important;
-  }
-  .blueprint-hero .hero-title .accent{
-    color: var(--tx-gold) !important;
-  }
-  .blueprint-hero .hero-sub{
-    color: var(--tx-grey) !important;
-  }
-  .blueprint-hero .btn-primary{
-    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light)) !important;
-    color: var(--tx-black) !important;
-    border: none !important;
-    font-weight: 700;
-  }
-  .blueprint-hero .btn-ghost{
-    border: 1.5px solid var(--tx-gold) !important;
-    color: var(--tx-gold-light) !important;
-  }
-
-  /* ---------- SERVICES / LEDGER SECTION ---------- */
-  .tx-services-section{
-    background: var(--tx-black-soft) !important;
-  }
-  .tx-services-section .eyebrow{ color: var(--tx-gold-light) !important; }
-  .tx-services-section .section-title{ color: #FFFFFF !important; }
-  .tx-services-section .section-lede{ color: var(--tx-grey) !important; }
-
-  .ledger-row{
-    border-bottom: 1px solid rgba(212,160,23,0.25) !important;
-  }
-  .ledger-row .mono{
-    color: var(--tx-gold-light) !important;
-  }
-  .ledger-row h3{
-    color: #F2F2F2 !important;
-  }
-  .ledger-row .tag{
-    background: var(--tx-gold) !important;
-    color: var(--tx-black) !important;
-    font-weight: 700;
-  }
-
-  /* ---------- HOW IT WORKS / PROCEDURE SECTION ---------- */
-  .tx-procedure-section{
-    position: relative;
-    background-color: var(--tx-black) !important;
-    background-image:
-      linear-gradient(180deg, rgba(11,11,12,0.90), rgba(11,11,12,0.82)),
-      url('procedure-bg.jpg') !important;
-    background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-  .tx-procedure-section .eyebrow{ color: var(--tx-gold-light) !important; }
-  .tx-procedure-section .section-title{ color: #FFFFFF !important; }
-  .tx-procedure-section .section-lede{ color: var(--tx-grey) !important; }
-  .tx-procedure-section .proc-row p{ color: #EDEDED !important; }
-  .tx-procedure-section .proc-row strong{ color: var(--tx-gold-light) !important; }
-  .tx-procedure-section .procedure{
-    background: rgba(11,11,12,0.72) !important;
-  }
-  .tx-procedure-section .proc-row{
-    border-color: rgba(212,160,23,0.25) !important;
-  }
-  .proc-num{
-    background: var(--tx-gold) !important;
-    color: var(--tx-black) !important;
-    font-weight: 800;
-  }
-
-  /* ---------- READY TO BUILD / CARDS SECTION ---------- */
-  .tx-cards-section{
-    background: var(--tx-black-soft) !important;
-  }
-  .dim-divider{
-    border-color: rgba(212,160,23,0.3) !important;
-  }
-  .dim-divider .mono{
-    color: var(--tx-gold-light) !important;
-  }
-  .card{
-    background: var(--tx-black) !important;
-    border: 1px solid rgba(212,160,23,0.35) !important;
-  }
-  .card h3{ color: #FFFFFF !important; }
-  .card p{ color: var(--tx-grey) !important; }
-  .card .btn-primary{
-    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light)) !important;
-    color: var(--tx-black) !important;
-    border: none !important;
-    font-weight: 700;
-  }
-  .card .btn-dark{
-    background: #FFFFFF !important;
-    color: var(--tx-black) !important;
-  }
-  .card .btn-ghost{
-    border-color: var(--tx-gold) !important;
-    color: var(--tx-gold-light) !important;
-  }
-
-  /* ---------- COMPANY PROFILE DOWNLOAD SECTION ---------- */
-  .profile-band{
-    position: relative;
-    background:
-      linear-gradient(120deg, rgba(11,11,12,0.92) 20%, rgba(11,11,12,0.55)),
-      url('cta-bg.jpg') center / cover no-repeat;
-    padding: 70px 0;
-    border-top: 2px solid var(--tx-gold);
-    border-bottom: 2px solid var(--tx-gold);
-  }
-  .profile-band .wrap{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .profile-band-text .eyebrow{
-    color: var(--tx-gold-light);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 13px;
-    margin-bottom: 8px;
-  }
-  .profile-band-text h2{
-    color: #FFFFFF;
-    font-size: 28px;
-    margin: 0 0 10px;
-    max-width: 480px;
-  }
-  .profile-band-text p{
-    color: var(--tx-grey);
-    max-width: 480px;
-    font-size: 15px;
-    margin: 0;
-  }
-  .profile-btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(90deg, var(--tx-gold), var(--tx-gold-light));
-    color: var(--tx-black);
-    font-weight: 700;
-    padding: 16px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 18px rgba(212,160,23,0.25);
-  }
-  .profile-btn:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212,160,23,0.4);
-  }
-
-  /* ---------- CONTACT STRIP / SOCIAL / FOOTER ---------- */
-  .contact-strip{
-    background: var(--tx-black) !important;
-    border-top: 1px solid rgba(212,160,23,0.25);
-  }
-  .contact-strip .numbers span{
-    color: #FFFFFF !important;
-  }
-  .contact-strip .mono{
-    color: var(--tx-gold-light) !important;
-  }
-  .social-bar{
-    background: var(--tx-black-soft) !important;
-  }
-  .social-bar .label{
-    color: var(--tx-grey) !important;
-  }
-  .social-icons a{
-    color: var(--tx-gold-light) !important;
-  }
-  .social-icons svg{
-    fill: var(--tx-gold-light) !important;
-  }
-  footer{
-    background: var(--tx-black) !important;
-    color: var(--tx-grey) !important;
-    border-top: 2px solid var(--tx-gold);
-  }
-</style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="Ten X Better Projects logo" class="nav-logo-mark">
-      <span class="nav-logo-text">Ten X Better Projects</span>
-    </a>
+    <a href="index.html" class="nav-logo"><span class="x">X</span> Ten X Better Projects</a>
     <div class="nav-links" id="navLinks">
       <a href="index.html" class="active">Home</a>
       <a href="apply.html">Apply</a>
@@ -334,105 +33,43 @@
   </div>
 </header>
 
-<section class="tx-services-section">
+<section>
   <div class="wrap">
     <div class="eyebrow" style="color:var(--brick)">Our Services</div>
     <h2 class="section-title">Everything under one contract.</h2>
     <p class="section-lede">We don't hand you off between subcontractors. One team, one bill of quantities, one point of accountability from plan to plaster.</p>
 
     <div class="ledger">
-      <div class="ledger-row">
-        <div class="mono">SRV—01</div>
-        <h3>Construction &amp; Civil Works</h3>
-        <div class="tag">GROUND UP</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—02</div>
-        <h3>Consultancy &amp; Construction Management</h3>
-        <div class="tag">ADVISORY</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—03</div>
-        <h3>Labour Hire</h3>
-        <div class="tag">ON-SITE</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—04</div>
-        <h3>Machinery Hiring</h3>
-        <div class="tag">EQUIPMENT</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—05</div>
-        <h3>Bill of Quantities (BOQ) Generation</h3>
-        <div class="tag">COSTING</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—06</div>
-        <h3>Title Deed Processing</h3>
-        <div class="tag">LEGAL</div>
-      </div>
-      <div class="ledger-row">
-        <div class="mono">SRV—07</div>
-        <h3>Planning &amp; Design of Any Structure</h3>
-        <div class="tag">DESIGN</div>
-      </div>
+      <div class="ledger-row"><div class="mono">SRV—01</div><h3>Construction &amp; Civil Works</h3><div class="tag">GROUND UP</div></div>
+      <div class="ledger-row"><div class="mono">SRV—02</div><h3>Consultancy &amp; Construction Management</h3><div class="tag">ADVISORY</div></div>
+      <div class="ledger-row"><div class="mono">SRV—03</div><h3>Labour Hire</h3><div class="tag">ON-SITE</div></div>
+      <div class="ledger-row"><div class="mono">SRV—04</div><h3>Machinery Hiring</h3><div class="tag">EQUIPMENT</div></div>
+      <div class="ledger-row"><div class="mono">SRV—05</div><h3>Bill of Quantities (BOQ) Generation</h3><div class="tag">COSTING</div></div>
+      <div class="ledger-row"><div class="mono">SRV—06</div><h3>Title Deed Processing</h3><div class="tag">LEGAL</div></div>
+      <div class="ledger-row"><div class="mono">SRV—07</div><h3>Planning &amp; Design of Any Structure</h3><div class="tag">DESIGN</div></div>
     </div>
   </div>
 </section>
 
-<section class="tx-procedure-section">
+<section style="background:var(--white); border-top:1px solid var(--plaster-line); border-bottom:1px solid var(--plaster-line);">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--brick)">How It Works</div>
     <h2 class="section-title">From site visit to handover.</h2>
     <p class="section-lede">The same procedure we run internally — visible to you at every stage once you apply.</p>
 
     <div class="procedure">
-      <div class="proc-row">
-        <div class="proc-num">01</div>
-        <p><strong>Site Visit.</strong> We assess your plot, access roads, and terrain before anything is priced.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">02</div>
-        <p><strong>Design.</strong> We draft a plan for you, or work from one you already have.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">03</div>
-        <p><strong>Bill of Quantities.</strong> A full costed breakdown of materials and labour, no surprises later.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">04</div>
-        <p><strong>Contract Agreement.</strong> Terms, timeline, and payment plan signed by both sides.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">05</div>
-        <p><strong>Mobilization Payment.</strong> 25%–75% deposit to begin, depending on scope.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">06</div>
-        <p><strong>Work Schedule.</strong> We prepare and share a build timeline before breaking ground.</p>
-      </div>
-      <div class="proc-row">
-        <div class="proc-num">07</div>
-        <p><strong>Weekly Reports.</strong> You receive progress photos and updates every week, start to finish.</p>
-      </div>
+      <div class="proc-row"><div class="proc-num">01</div><p><strong>Site Visit.</strong> We assess your plot, access roads, and terrain before anything is priced.</p></div>
+      <div class="proc-row"><div class="proc-num">02</div><p><strong>Design.</strong> We draft a plan for you, or work from one you already have.</p></div>
+      <div class="proc-row"><div class="proc-num">03</div><p><strong>Bill of Quantities.</strong> A full costed breakdown of materials and labour, no surprises later.</p></div>
+      <div class="proc-row"><div class="proc-num">04</div><p><strong>Contract Agreement.</strong> Terms, timeline, and payment plan signed by both sides.</p></div>
+      <div class="proc-row"><div class="proc-num">05</div><p><strong>Mobilization Payment.</strong> 25%–75% deposit to begin, depending on scope.</p></div>
+      <div class="proc-row"><div class="proc-num">06</div><p><strong>Work Schedule.</strong> We prepare and share a build timeline before breaking ground.</p></div>
+      <div class="proc-row"><div class="proc-num">07</div><p><strong>Weekly Reports.</strong> You receive progress photos and updates every week, start to finish.</p></div>
     </div>
   </div>
 </section>
 
-<div class="profile-band">
-  <div class="wrap">
-    <div class="profile-band-text">
-      <div class="eyebrow">Company Profile</div>
-      <h2>Want the full picture of what we do?</h2>
-      <p>Download our complete company profile — our mission, our 10X Standard Block, service matrix, statutory details, and more.</p>
-    </div>
-    <a href="Ten-X-Better-Projects-Company-Profile.pdf" class="profile-btn" target="_blank" rel="noopener">
-      ⬇ Download Company Profile (PDF)
-    </a>
-  </div>
-</div>
-
-<section class="tx-cards-section">
+<section>
   <div class="wrap">
     <div class="dim-divider"><span class="mono">READY TO BUILD?</span></div>
     <div class="card-grid">
@@ -484,7 +121,7 @@
 </div>
 
 <footer>
-  © <span id="year"></span> Ten X Better Projects Limited. Built ten times better.
+  © <span id="year"></span> Ten X Better Projects Limited. Built ten times better. &nbsp;·&nbsp; <a href="privacy.html" style="text-decoration:underline;">Privacy Policy</a>
 </footer>
 
 <script>
